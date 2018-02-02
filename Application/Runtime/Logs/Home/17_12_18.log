@@ -1,0 +1,18 @@
+[ 2017-12-18T15:57:40+08:00 ] ::1 /mydaily/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.046506s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.047006s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.047006s ]
+ERR: 无法加载控制器:Daily
+
+[ 2017-12-18T15:58:06+08:00 ] ::1 /mydaily/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000500s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Daily
+

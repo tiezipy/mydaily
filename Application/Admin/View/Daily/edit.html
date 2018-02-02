@@ -1,0 +1,97 @@
+<include file="Public/header.html" />
+
+<div class="main-content">
+
+    <div class="page-content-area">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <form class="form-horizontal" role="form" >
+                        <!-- #section:elements.form -->
+                        <div class="form-group">
+
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">标题</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" value="<{$res[0].title}>" name="title"   class="col-xs-10 col-sm-5" />
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-field-select-1" class="col-sm-3 control-label no-padding-right">类别</label>
+                            <input type="hidden" id='kindid' value="<{$res[0].kindid}>">
+                            <input type="hidden" id='dailysid' value="<{$res[0].id}>">
+                            <div class="col-sm-6">
+                                <{$res[0].kindname}>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12"  >
+                                <div id="div1" >
+                                    <p><{$res[0].content}></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="button" id="update">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    更新
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div><!-- /.col -->
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="__PUBLIC__/Admin/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/assets/js/wangEditor.min.js"></script>
+    <script type="text/javascript">
+        var E = window.wangEditor;
+        var editor = new E('#div1');
+        editor.create();
+
+        document.getElementById('update').addEventListener('click', function () {
+            // 读取 html
+            var title=$("#form-field-1").val();
+            var id=$("#dailysid").val();
+            var content=editor.txt.text();
+
+            var url= 'http://localhost/mydaily/Admin/Daily/update';
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{title:title,id:id,content:content},
+                success:function (data) {
+                    alert(data);
+                    location.href="http://localhost/mydaily/Admin/Daily/index";
+                }
+
+            })
+//            alert(editor.txt.html())
+        }, false)
+
+        document.getElementById('btn2').addEventListener('click', function () {
+            // 读取 text
+            alert(editor.txt.text())
+        }, false)
+
+    </script>
+</div>
+
+<include file="Public/footer.html" />
