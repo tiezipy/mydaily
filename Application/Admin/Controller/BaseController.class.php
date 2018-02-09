@@ -29,4 +29,8 @@ class BaseController extends Controller {
         $p->lastSuffix = false;//最后一页不显示为总页数
         return $p;
     }
+
+    protected function sayHi(){
+        echo 'hi';
+    }
 }
