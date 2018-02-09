@@ -14,6 +14,7 @@ class BaseController extends Controller {
         }
 
 
+
     }
     //分页二次封装
     protected function getPage($count, $pagesize = 10)
